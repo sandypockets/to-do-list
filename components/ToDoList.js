@@ -9,9 +9,9 @@ import { GlobalStyles } from '../lib/constants'
 import 'react-native-url-polyfill/auto'
 import CreateToDo from "./CreateToDo";
 
-export default function TodoList() {
+export default function TodoList({ navigation, todos, setTodos }) {
   const { user } = useUser()
-  const [todos, setTodos] = useState([])
+
   const [newTaskText, setNewTaskText] = useState('')
 
   useEffect(() => {
@@ -25,22 +25,6 @@ export default function TodoList() {
       .order('id', { ascending: false })
     if (error) console.log('error', error)
     else setTodos(todos)
-  }
-
-  const addTodo = async (taskText) => {
-    const task = taskText.trim()
-    console.log('New Task: ', task)
-    if (task.length) {
-      const { data: todo, error } = await supabase
-        .from('todos')
-        .insert({ task, user_id: user.id })
-    .single()
-      if (error) console.log(error.message)
-      else {
-        setTodos([todo, ...todos])
-        setNewTaskText('')
-      }
-    }
   }
 
   const toggleCompleted = async (id, is_complete) => {
@@ -61,10 +45,6 @@ export default function TodoList() {
 
   return (
     <View>
-
-      <CreateToDo state={newTaskText} setState={setNewTaskText} onPressFunc={addTodo} />
-
-
       <SafeAreaView style={GlobalStyles.verticallySpaced}>
         <FlatList
           scrollEnabled={true}

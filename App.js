@@ -4,11 +4,12 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { createMaterialBottomTabNavigator } from '@react-navigation/material-bottom-tabs';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
-import { DefaultTheme, Provider as PaperProvider } from 'react-native-paper';
+import { DefaultTheme, Provider as PaperProvider, Button } from 'react-native-paper';
 import AuthScreen from './screens/AuthScreen'
 import HomeScreen from "./screens/HomeScreen";
 import ProfileScreen from "./screens/ProfileScreen";
 import ToDoListScreen from "./screens/ToDoListScreen";
+import CreateToDoScreen from "./screens/CreateToDoScreen";
 
 const Tab = createMaterialBottomTabNavigator();
 const Stack = createNativeStackNavigator();
@@ -78,9 +79,12 @@ export default function App() {
         <NavigationContainer>
           <Stack.Navigator>
             <Stack.Screen
-              name={"Container"}
+              name={"App Logo"}
               component={Container}
-              options={{ title: 'App Logo' }}
+            />
+            <Stack.Screen
+              name={"CreateToDo"}
+              component={CreateToDoScreen}
             />
           </Stack.Navigator>
         </NavigationContainer>
