@@ -13,7 +13,8 @@ export default function ToDoListScreen({ navigation }) {
       <View style={{
         flexDirection: 'row',
         justifyContent: 'space-between',
-        marginHorizontal: 5
+        marginHorizontal: 5,
+        marginBottom: 20
       }}>
         <Text style={GlobalStyles.headerText}>To Do List</Text>
         <Button

@@ -1,7 +1,7 @@
 // noinspection JSValidateTypes
 import React, { useState } from 'react'
 import { Alert, View } from 'react-native'
-import {Button, Text, TextInput} from 'react-native-paper';
+import { Button, Text, TextInput } from 'react-native-paper';
 import { GlobalStyles } from '../lib/constants'
 import { supabase } from '../lib/initSupabase'
 
@@ -19,7 +19,7 @@ export default function AuthScreen() {
         : await supabase.auth.signUp({ email, password })
     if (!error && !user) Alert.alert('Check your email for the login link!')
     if (error) Alert.alert(error.message)
-    type === 'LOGIN' ? signInLoading(false) : signUpLoading(false)
+    type === 'LOGIN' ? setSignInLoading(false) : setSignUpLoading(false)
   }
 
   return (

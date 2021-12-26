@@ -45,7 +45,7 @@ export default function TodoList({ navigation, todos, setTodos }) {
           data={todos}
           keyExtractor={(item) => `${item.id}`}
           renderItem={({ item: todo, index }) => (
-            <View style={[styles.row, index % 2 === 0 ? { backgroundColor: '#e1c3ff' } : { backgroundColor: 'white'}  ]}>
+            <View style={[styles.row, index % 2 === 0 ? { backgroundColor: '#f7f0ff' } : { backgroundColor: 'white'}  ]}>
               <Checkbox.Item
                 label={todo.task}
                 status={todo.is_complete ? "checked" : "unchecked"}

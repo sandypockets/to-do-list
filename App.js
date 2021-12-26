@@ -6,7 +6,6 @@ import { createMaterialBottomTabNavigator } from '@react-navigation/material-bot
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 import { DefaultTheme, Provider as PaperProvider, Button } from 'react-native-paper';
 import AuthScreen from './screens/AuthScreen'
-import HomeScreen from "./screens/HomeScreen";
 import ProfileScreen from "./screens/ProfileScreen";
 import ToDoListScreen from "./screens/ToDoListScreen";
 import CreateToDoScreen from "./screens/CreateToDoScreen";
@@ -21,7 +20,7 @@ const theme = {
     ...DefaultTheme.colors,
     primary: '#845ee3',
     accent: '#4C2F96',
-    text: '#444444'
+    text: '#444444',
   },
 };
 
@@ -33,16 +32,6 @@ function LoggedInTabs() {
       barStyle={{ backgroundColor: theme.colors.primary }}
       shifting="true"
     >
-      <Tab.Screen
-        name="Home"
-        component={HomeScreen}
-        options={{
-          tabBarLabel: 'Home',
-          tabBarIcon: ({ color }) => (
-            <MaterialCommunityIcons name="home" color={color} size={26} />
-          ),
-        }}
-      />
       <Tab.Screen
         name="To Do"
         component={ToDoListScreen}
