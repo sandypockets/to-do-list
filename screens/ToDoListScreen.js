@@ -1,9 +1,9 @@
-import React, {useState} from "react";
+import React, { useState } from "react";
 import { View } from "react-native";
 import { StatusBar } from "expo-status-bar";
-import TodoList from "../components/ToDoList";
 import { GlobalStyles } from "../lib/constants";
 import { Button, Text } from 'react-native-paper';
+import TodoList from "../components/ToDoList";
 
 export default function ToDoListScreen({ navigation }) {
   const [todos, setTodos] = useState([])
@@ -28,7 +28,7 @@ export default function ToDoListScreen({ navigation }) {
           New
         </Button>
       </View>
-      <TodoList navigation={navigation} todos={todos} setTodos={setTodos} />
+      {todos && <TodoList navigation={navigation} todos={todos} setTodos={setTodos} />}
       <StatusBar style="auto" />
     </View>
   );

@@ -6,6 +6,7 @@ import { supabase } from '../lib/initSupabase'
 import { GlobalStyles } from '../lib/constants'
 /** URL polyfill. Required for Supabase queries to work in React Native. */
 import 'react-native-url-polyfill/auto'
+import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 
 export default function TodoList({ navigation, todos, setTodos }) {
   useEffect(() => {
@@ -34,7 +35,7 @@ export default function TodoList({ navigation, todos, setTodos }) {
   const deleteTodo = async (id) => {
     const { error } = await supabase.from('todos').delete().eq('id', id)
     if (error) console.log('error', error)
-    else setTodos(todos.filter((x) => x.id !== Number(id)))
+    else setTodos(todos.filter((todo) => todo.id !== Number(id)))
   }
 
   return (
@@ -57,9 +58,10 @@ export default function TodoList({ navigation, todos, setTodos }) {
                 compact="true"
                 onPress={() => deleteTodo(todo.id)}
                 mode="text"
-                style={{ paddingTop: 9 }}
+                style={{ paddingTop: 2, width: 80 }}
               >
-                Delete
+                {/*Delete*/}
+                <MaterialCommunityIcons name="trash-can" color={"#4C2F96"} size={25} />
               </Button>
             </View>
           )}

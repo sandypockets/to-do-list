@@ -28,18 +28,18 @@ export default function ProfileScreen() {
         <Text style={GlobalStyles.headerText}>Profile</Text>
         <Button
           mode="contained"
-          style={{ width: 110, height: 38, marginTop: 20 }}
+          style={{ width: 115, height: 38, marginTop: 20 }}
           onPress={() => supabase.auth.signOut()}
         >
           Sign out
         </Button>
       </View>
       <View style={{ marginHorizontal: 5 }}>
-        <Text style={GlobalStyles.subHeaderText}>Edit your email or password</Text>
+        <Text style={GlobalStyles.subHeaderText}>Update your email or password</Text>
       </View>
       <View style={GlobalStyles.verticallySpaced}>
         <TextInput
-          label="Email"
+          label="New email"
           mode="outlined"
           onChangeText={(text) => setEmail(text)}
           value={email}
@@ -49,13 +49,13 @@ export default function ProfileScreen() {
       </View>
       <View style={GlobalStyles.verticallySpaced}>
         <TextInput
-          label="Password"
+          label="New password"
           mode="outlined"
           left={<TextInput.Icon name="lock" />}
           onChangeText={(text) => setPassword(text)}
           value={password}
           secureTextEntry={true}
-          placeholder="Password"
+          placeholder="Enter your new password"
         />
       </View>
       <View style={{
@@ -72,7 +72,7 @@ export default function ProfileScreen() {
         </Button>
         <Text style={{
           marginTop: 10
-        }}>You will receive an email to your existing email address to confirm the changes.</Text>
+        }}>You will receive an email to your existing email address to confirm email address changes. Password changes are effective immediately.</Text>
       </View>
     </View>
   );

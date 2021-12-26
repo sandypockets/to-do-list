@@ -12,21 +12,23 @@ export default function AuthScreen() {
   const [signInLoading, setSignInLoading] = useState(Boolean(false))
 
   const handleLogin = async (type, email, password) => {
-    type === 'LOGIN' ? signInLoading(true) : signUpLoading(true)
+    type === 'LOGIN' ? setSignInLoading(true) : setSignUpLoading(true)
     const { error, user } =
       type === 'LOGIN'
         ? await supabase.auth.signIn({ email, password })
         : await supabase.auth.signUp({ email, password })
     if (!error && !user) Alert.alert('Check your email for the login link!')
     if (error) Alert.alert(error.message)
-    type === 'LOGIN' ? setSignInLoading(false) : setSignUpLoading(false)
   }
 
   return (
-    <View>
-      <Text style={GlobalStyles.headerText}>To Do List App</Text>
-      <Text style={GlobalStyles.subHeaderText}>Login or create a new account</Text>
-      <View style={[GlobalStyles.verticallySpaced, { marginTop: 20 }]}>
+    <View style={GlobalStyles.container}>
+      <View style={{ marginHorizontal: 5 }}>
+        <Text style={GlobalStyles.headerText}>To Do List App</Text>
+        <Text style={{ marginBottom: 15 }}>To Do List helps you manage your To Dos. Add or remove as many To Dos as you'd like.</Text>
+        <Text style={GlobalStyles.subHeaderText}>Login or create a new account</Text>
+      </View>
+      <View style={GlobalStyles.verticallySpaced}>
         <TextInput
           label="Email"
           mode="outlined"
