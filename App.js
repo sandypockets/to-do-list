@@ -85,6 +85,10 @@ export default function App() {
             <Stack.Screen
               name={"CreateToDo"}
               component={CreateToDoScreen}
+              options={{
+                title: 'Create To Do',
+                headerTintColor: '#000000',
+              }}
             />
           </Stack.Navigator>
         </NavigationContainer>

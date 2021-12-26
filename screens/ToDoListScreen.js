@@ -10,16 +10,23 @@ export default function ToDoListScreen({ navigation }) {
 
   return (
     <View style={GlobalStyles.container}>
-      <Button
-        onPress={() => navigation.navigate('CreateToDo', {
-          todos,
-          setTodos
-        })}
-        mode="contained"
-      >
-        New
-      </Button>
-      <Text style={GlobalStyles.headerText}>To Do List</Text>
+      <View style={{
+        flexDirection: 'row',
+        justifyContent: 'space-between',
+        marginHorizontal: 5
+      }}>
+        <Text style={GlobalStyles.headerText}>To Do List</Text>
+        <Button
+          onPress={() => navigation.navigate('CreateToDo', {
+            todos,
+            setTodos
+          })}
+          mode="contained"
+          style={{ width: 75, height: 38, marginTop: 20 }}
+        >
+          New
+        </Button>
+      </View>
       <TodoList navigation={navigation} todos={todos} setTodos={setTodos} />
       <StatusBar style="auto" />
     </View>

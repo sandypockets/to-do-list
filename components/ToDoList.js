@@ -1,19 +1,13 @@
 // noinspection JSValidateTypes
-import React, { useEffect, useState } from 'react'
+import React, { useEffect } from 'react'
 import { FlatList, View, StyleSheet, SafeAreaView } from 'react-native'
 import { Button, Checkbox } from 'react-native-paper'
 import { supabase } from '../lib/initSupabase'
-import { useUser } from './UserContext'
 import { GlobalStyles } from '../lib/constants'
 /** URL polyfill. Required for Supabase queries to work in React Native. */
 import 'react-native-url-polyfill/auto'
-import CreateToDo from "./CreateToDo";
 
 export default function TodoList({ navigation, todos, setTodos }) {
-  const { user } = useUser()
-
-  const [newTaskText, setNewTaskText] = useState('')
-
   useEffect(() => {
     fetchTodos()
   }, [])

@@ -1,11 +1,14 @@
 import React from "react";
 import { View } from "react-native";
-import { Button, TextInput } from "react-native-paper";
+import { Button, TextInput, Text } from "react-native-paper";
 import { GlobalStyles } from "../lib/constants";
 
 export default function CreateToDo({ navigation, state, setState, onPressFunc }) {
   return (
-    <View style={[GlobalStyles.verticallySpaced, { marginTop: 20, marginBottom: 50 }]}>
+    <View style={[GlobalStyles.verticallySpaced, { marginTop: 20, marginBottom: 50, marginHorizontal: 10 }]}>
+      <Text style={GlobalStyles.subHeaderText}>
+        Create a new To Do
+      </Text>
       <TextInput
         label="New todo"
         left={ <TextInput.Icon name="view-list" /> }
